@@ -85,7 +85,7 @@ const Navigate=useNavigate();
         <div className="mt-2 p-2 pl-4">This is your Mindstack sharable link, anyone can access your mindstack using this link until you delete it. </div>
 
         <div className="flex gap-6 flex-col  justify-center items-center"> 
-           <div className="border  border-blue-500 p-3 rounded-md select-all"> {` http://localhost:5173/mindstack/share/${sharableLink}`}</div>
+           <div className="border  border-blue-500 p-3 rounded-md select-all"> {` https://mindstackapp.vercel.app/share/${sharableLink}`}</div>
            <div className="flex gap-6 items-center flex-wrap">
             <div><button disabled={generateButtonDisabled} onClick={generateLinkButtonHandler} className={`${generateButtonDisabled?'bg-gray-400 text-gray-200':'bg-blue-600 text-white'} p-2 rounded-md border`}> Generate link</button> </div>
             <div><button disabled={deleteButtonDisabled} onClick={sharableLinkDeleteButtonHandler} className={`${deleteButtonDisabled?'bg-gray-400 text-gray-200  ':'bg-blue-600 text-white '}border-2 rounded-md p-2 `}>Delete</button> </div> </div>   </div>
