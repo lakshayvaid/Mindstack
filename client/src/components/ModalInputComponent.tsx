@@ -9,6 +9,7 @@ interface modalinputprops{
 }
 
 export function ModalInputComponent({onClose,onContentAdded}:modalinputprops) {
+    const backend = import.meta.env.VITE_BACKEND_URL;
      const [isButtonDisabled,setButtonDisabled]=useState(false);
 
 const [Alert,setAlert]=useState(false)
@@ -82,7 +83,7 @@ const [Alert,setAlert]=useState(false)
         const token=localStorage.getItem("token");
         
 
-     const response= await   axios.post('http://localhost:3000/api/v1/content', {
+     const response= await   axios.post(`${backend}/api/v1/content`, {
             tittle,
             link,
             type:typevalue

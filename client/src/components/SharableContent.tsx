@@ -83,6 +83,7 @@ useEffect(() => {
 
 
 export function SharableContent(){
+   const backend = import.meta.env.VITE_BACKEND_URL;
     const [recievedContent,setRecievedContent]=useState<CardComponentProps[]>([]);
 
     const{shareid}=useParams<{shareid:string}>();
@@ -90,7 +91,7 @@ export function SharableContent(){
     useEffect(()=>{
        async function getContent(){
         try{ 
-            const response=await axios.get(`http://localhost:3000/api/v1/mindstack/share/${shareid}`);
+            const response=await axios.get(`${backend}/api/v1/mindstack/share/${shareid}`);
             setRecievedContent(await response.data.content);
         }
         catch(err){

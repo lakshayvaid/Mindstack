@@ -28,7 +28,7 @@ function Buttontext({ text }:ButtontextProps) {
 
 
 export function DashboardComponent() {
-
+const backend = import.meta.env.VITE_BACKEND_URL;
 
   const [open, setOpen] = useState(false);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -51,7 +51,7 @@ export function DashboardComponent() {
           try{
            const token=localStorage.getItem("token")
         
-         const response= await axios.get("http://localhost:3000/api/v1/dashboard",{
+         const response= await axios.get(`${backend}/api/v1/dashboard`,{
             headers:{
               authorization:`bearer ${token}`
             }

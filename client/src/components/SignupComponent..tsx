@@ -5,6 +5,7 @@ import {Link ,useNavigate} from 'react-router-dom'
 import { AlertComponent } from "./AlertComponent";
 
 export function SignupComponent() {
+  const backend = import.meta.env.VITE_BACKEND_URL;
   const [Alert,setAlert]=useState(false)
   const[alertText,setAlertText]=useState("");
 
@@ -29,7 +30,7 @@ const navigate=useNavigate();
         const email=emailRef.current?.value;
         const password=passwordRef.current?.value;
 
-        const response= await axios.post('http://localhost:3000/api/v1/signup',{
+        const response= await axios.post(`${backend}/api/v1/signup`,{
             username,
             email,
             password,

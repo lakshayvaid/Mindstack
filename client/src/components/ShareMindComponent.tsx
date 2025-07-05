@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AlertComponent } from "./AlertComponent";
 
 export function ShareMindComponent(){
+  const backend = import.meta.env.VITE_BACKEND_URL;
   const [Alert,setAlert]=useState(false)
   const[alertText,setAlertText]=useState("");
   const[generateButtonDisabled,setGenerateButtonDisabled]=useState(false);
@@ -16,7 +17,7 @@ const [sharableLink,setSharableLink]=useState("");
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:3000/api/v1/mindstack/share",
+        `${backend}/api/v1/mindstack/share`,
         {},
         {
           headers: {
@@ -51,7 +52,7 @@ const Navigate=useNavigate();
  async function sharableLinkDeleteButtonHandler(){
   try{ const token=localStorage.getItem("token");
 
-   const response =await axios.delete('http://localhost:3000/api/v1/mindstack/share',
+   const response =await axios.delete(`${backend}/api/v1/mindstack/share`,
     
     {
         headers:{

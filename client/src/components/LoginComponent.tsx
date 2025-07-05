@@ -10,6 +10,7 @@ import { AlertComponent } from "./AlertComponent";
 
 
 export function LoginComponent() {
+    const backend = import.meta.env.VITE_BACKEND_URL;
 const [Alert,setAlert]=useState(false)
   const[alertText,setAlertText]=useState("");
  const Navigate=useNavigate();
@@ -23,7 +24,7 @@ const [Alert,setAlert]=useState(false)
         const email=loginEmailRef.current?.value;
         const password=loginPasswordRef.current?.value;
 
-        const response= await axios.post('http://localhost:3000/api/v1/signin',{
+        const response= await axios.post(`${backend}/api/v1/signin`,{
 
             email,
             password,

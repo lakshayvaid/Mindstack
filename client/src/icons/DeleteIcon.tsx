@@ -10,6 +10,7 @@ interface deleteProps{
 
 
 export function DeleteIcon({contentid,onContentDeleted}:deleteProps){
+  const backend = import.meta.env.VITE_BACKEND_URL;
 
   const [Alert,setAlert]=useState(false)
     const[alertText,setAlertText]=useState("");
@@ -18,7 +19,7 @@ export function DeleteIcon({contentid,onContentDeleted}:deleteProps){
      
   try{
     const token=localStorage.getItem("token");
-   const response= await axios.delete('http://localhost:3000/api/v1/content/',{
+   const response= await axios.delete(`${backend}/api/v1/content/`,{
       headers:{
         authorization:`bearer ${token}`,
         contentid
