@@ -111,6 +111,6 @@
     "skipLibCheck": true ,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "types": ["node"]   ,                           /* Skip type checking all .d.ts files. */
+                               /* Skip type checking all .d.ts files. */
   }
 }
